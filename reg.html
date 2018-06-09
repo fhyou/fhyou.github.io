@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    #header{
+        width: 100%;
+        height: 78.5px;
+        margin: 0px auto;
+        padding: 0px 5% 0px 5%;
+        border-bottom: 1px solid #e1e1e1;
+        background-color:white; 
+
+    }
+    .logo{
+        background: url("./img/logo.png");
+        width: 284px;
+        height: 65px;
+        float: left;
+    }
+    .c1{
+        float: left;
+        padding-top: 20px;
+        margin-left: 20px;
+        font-size: 20px; color: #333;
+        font-family: 微软雅黑;
+        font-weight:bold;
+    }
+    .c2{
+        float: right;
+        padding-top: 25px;
+        font-size: 10px; color: #333;
+    }
+    .a1{
+        text-decoration: none;
+    }
+    .a2{
+        text-decoration: none;
+        float: right;
+        margin-left: 0px;
+        font-size: 10px; 
+    }
+    .a3{
+        text-decoration: none;
+        float: right;
+        margin-top: 10px;
+        font-size: 10px; 
+        color: red;
+        border: 1px solid red;
+        padding: 13px;
+    }
+    #content{
+        width: 100%;
+        height: 600px;
+    }
+    #myform{
+        border: 1px solid #ddd;
+        width: 40%;
+        height: 600px;
+        margin: 20px auto;
+        background-color:white; 
+    }
+    .div1{
+        text-align: left; 
+        font-size: 20px; 
+        color:red;
+        font-family: 微软雅黑;
+        font-weight:bold;
+        padding: 10px 0px ;
+        border-bottom:1px solid   #ddd;
+    }
+    label{
+        display: block;
+        margin-top: 20px;
+        font-weight:bold;
+    }
+    input{
+        width: 100%;
+        height: 42px;
+        margin-top: 10px;
+    }
+    .button{
+        background-color: red;
+        text-align: center;
+        padding: 10px;
+        color: white;
+        font-size: 20px; 
+        font-weight:bold;
+        margin: 0px;
+        border: none;
+        text-decoration: none;
+        width: 100%;
+    }
+    #res_shoujihaoma,#res_shoujiyanzhengma,#res_password1,#res_password2{
+        float: left;
+        font-size: 10px; 
+        color: red;
+    }
+</style>
+</style>
+
+<body style="background-color: #f5f5f5; margin: 0px ;padding: 0px" >
+    <div id="header">
+        <div class="logo"></div>
+        <div class="c1">欢迎注册</div>
+        <div class="c2"><a href="reg.html" class="a1">返回首页</a></div>
+    </div>
+
+    <div id="content">
+        <div id="myform">
+            <div style="margin: 30px 30px"> 
+            <form action="reg.php" method="POST" onsubmit="return validateForm()">
+                <div class="div1">用户注册</div>
+                <div>
+                    <label for="shoujihaoma1" style="margin-top: 35px;">手机号码</label>
+                    <input type="text" name="shoujihaoma" id=shoujihaoma1 value="" placeholder="请输入手机号">
+                    <div id=res_shoujihaoma></div>
+                    
+                </div>
+                <div>
+                    <label for="shoujiyanzhengma1">手机验证码</label>
+                    <input style="width: 74%;" type="text" name="shoujiyanzhengma" id=shoujiyanzhengma1 value="" placeholder="手机验证码">
+                    <a href="" class="a3">获取手机验证码</a>
+                    <div id=res_shoujiyanzhengma></div>
+                </div>
+                <div>
+                    <label for="password">密码</label>
+                    <input type="password" name="password1" id=password1 value="" placeholder="6~12位的字符、数字组合">
+                    <div id=res_password1></div>
+                </div>
+                <div>
+                    <label for="password2">确认密码</label>
+                    <input type="password" name="password2" id=password2 value="" placeholder="请再次输入密码">
+                    <div id=res_password2></div>
+                </div>
+                <div style="margin-top: 35px;"><a href="" class="a2" >已有账号？请登录</a></div>
+                <div><input type="submit" value="立即注册" class="button"></div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+</body>
+
+<script>
+    function validateForm(){
+        var shoujihaoma = document.getElementById("shoujihaoma1").value;
+        var shoujiyanzhengma = document.getElementById("shoujiyanzhengma1").value;
+        var password1 = document.getElementById("password1").value;
+        var password2 = document.getElementById("password2").value;
+
+        document.getElementById("res_shoujihaoma").innerHTML = " ";
+        document.getElementById("res_shoujiyanzhengma").innerHTML = " ";
+        document.getElementById("res_password1").innerHTML = " ";
+        document.getElementById("res_password2").innerHTML = " ";
+        
+        if(shoujihaoma=="" || shoujihaoma.length != 11){
+            document.getElementById("res_shoujihaoma").innerHTML = "*请输入正确的手机号码！";
+            return false;
+        }
+        if(shoujiyanzhengma==""){
+            document.getElementById("res_shoujiyanzhengma").innerHTML = "*请输入验证码！";
+            return false;
+        }
+        if(password1=="" ){
+            document.getElementById("res_password1").innerHTML = "*请输入密码！";
+            return false;
+        }
+        if(password1 != password2  ){
+            document.getElementById("res_password2").innerHTML = "*两次密码输入不一致！";
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+</html>
