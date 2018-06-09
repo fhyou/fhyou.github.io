@@ -1,0 +1,50 @@
+
+header("Content-type: text/html; charset=utf-8");//加在php页面头部
+<meta http-equiv="content-type" content="text/html;charset=utf-8">//这是在html里设置的
+
+echo mysql_error(); //查看报错原因
+var_dump();//查看返回值
+
+
+echo "<script>alert('注册成功！');setTimeout(function(){self.location.href='test99.php';},0)</script>";  //提示后跳转
+
+
+date_default_timezone_set('PRC');//设置中国时区
+$createtime=date("y-d-m H:i:s");//获取注册时间，也就是数据写入到用户表的时间
+
+//在网页中显示实时时间
+<div id="time1">实时时间</div>
+<script>setInterval("document.getElementById('time1').innerHTML = new Date().toLocaleString();", 0);</script>
+
+//两个页面间变量的传送 setcookie() 函数必须位于 <html> 标签之前。
+//loginsuccess.php
+<?php 
+setcookie("username", $_POST["username"], time()+3600);
+?>
+<html>
+<body>
+
+</body>
+</html>
+//test99.php
+<?php
+$username = $_COOKIE["username"];
+echo "$username";
+    ?>
+
+
+//zendstudio格式化代码快捷键
+Ctrl+Alt+F
+
+//注销登陆代码
+<?php
+header("Content-type: text/html; charset=utf-8");
+setcookie("username");
+echo "<script>alert('注销成功！');setTimeout(function(){self.location.href='index.php';},0)</script>";  //提示后跳转
+?>
+
+//天气预报1
+<IFRAME ID=''ifm1'' WIDTH=''405'' HEIGHT=''332'' ALIGN=''center'' MARGINWIDTH=''0'' MARGINHEIGHT=''0'' HSPACE=''0'' VSPACE=''0'' FRAMEBORDER=''0'' SCROLLING=''NO'' SRC=" http://weather.qq.com/24.htm"></IFRAME>
+//天气预报2
+<iframe width="210" scrolling="no" height="292" frameborder="0"
+allowtransparency="true"src="http://i.tianqi.com/index.php?c=code&id=19&color=%23002060&bgc=%23&icon=1&py=panyu&temp=0&num=4"></iframe>

@@ -1,0 +1,16 @@
+  <b>短信箱</b>
+  <ul>
+	<li><a href="user_messbox.php">收信箱</a></li>
+    <li><a href="user_mess.php">我要写信</a></li>
+  </ul>
+  <b>发布管理</b>
+  <ul>
+    <li><a href="user_write.php" target="_blank">我要发布信息</a></li>
+	<li><a href="user_list.php">管理已发信息</a></li>
+  </ul>
+  <b>其他管理</b>
+  <ul>
+	<li><a href="user_file.php">修改/完善我的名片</a></li>
+	<li><a href="user_power.php">了解我的权限</a></li>
+  </ul>
+
